@@ -1,0 +1,15 @@
+{
+  "title": "Handle empty expression input",
+  "repository_url": "https://github.com/agentbench-demo/expression-kit",
+  "base_commit": "1111111111111111111111111111111111111111",
+  "reference_commit": "2222222222222222222222222222222222222222",
+  "prompt": "Return EmptyExpression for empty or whitespace-only input. Preserve parsing of valid expressions and rejection of invalid tokens.",
+  "grading_paths": ["tests/test_parser.py", "tests/fixtures"],
+  "fail_to_pass": ["tests/test_parser.py::test_empty_expression", "tests/test_parser.py::test_whitespace_expression"],
+  "pass_to_pass": ["tests/test_parser.py::test_nested_expression", "tests/test_parser.py::test_invalid_token"],
+  "test_command": ["python", "-m", "pytest", "tests/test_parser.py", "--junitxml=/tmp/results.xml"],
+  "environment": {
+    "image": "ghcr.io/agentbench/python@sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "setup_commands": [["python", "-m", "pip", "install", "-e", ".[test]"]]
+  }
+}

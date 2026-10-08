@@ -1,0 +1,36 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --extra mcp --extra database --extra execution
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run pytest
+      - run: uv run python -c "from agentbench.mcp.server import server"
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build

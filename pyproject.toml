@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentbench"
+version = "0.1.0"
+description = "Infrastructure for evaluating AI coding agents"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.34,<1",
+  "pydantic-settings>=2.8,<3",
+  "httpx>=0.28,<1",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=2,<3"]
+# Add persistence and migrations when implementing the first vertical slice.
+database = ["sqlalchemy>=2.0,<3", "psycopg[binary]>=3.2,<4", "alembic>=1.15,<2"]
+execution = ["docker>=7.1,<8"]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<9", "ruff>=0.11,<1"]
+
+[project.scripts]
+agentbench-worker = "agentbench.worker.main:main"
+agentbench-mcp = "agentbench.mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentbench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
