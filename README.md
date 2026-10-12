@@ -4,6 +4,23 @@ A starter platform for comparing AI coding agents on reproducible repository
 benchmarks. [Architecture](docs/architecture.md) describes the boundaries;
 [implementation instructions](docs/benchmarking.md) define the full pipeline.
 
+## 🎯 Who Is This For?
+
+**This is a learning project for intermediate Python developers**, not absolute beginners.
+
+### ✅ You're Ready If You Have:
+- 6+ months Python experience
+- Built a web API before (Flask/FastAPI)
+- Basic SQL knowledge (SELECT, INSERT, UPDATE)
+- Used Docker to run containers
+- Comfortable reading documentation and debugging
+
+### 📚 Essential Reading:
+- **⭐ Start here!** → [START-HERE](docs/START-HERE.md) - Quick start + learning path
+- **Step-by-step guide** → [Beginner Implementation Guide](docs/beginner-implementation-guide.md) - All 7 steps explained in detail
+- **TODO reference** → [TODO Guide](docs/TODO-GUIDE.md) - All 61 TODOs explained with examples
+- **Command cheat sheet** → [Quick Reference](docs/quick-reference.md) - Common commands & debugging
+
 ## Benchmark workflow
 
 Turn an existing fix into a reusable task:
