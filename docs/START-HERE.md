@@ -36,7 +36,6 @@ open http://127.0.0.1:8000/docs
 | Document | Purpose | When to Use |
 |----------|---------|-------------|
 | [Beginner Implementation Guide](beginner-implementation-guide.md) | Step-by-step for all 7 steps | Read before each step |
-| [TODO Guide](TODO-GUIDE.md) | All 61 TODOs explained | Reference while coding |
 | [Quick Reference](quick-reference.md) | Command cheat sheet | Daily work |
 | [Architecture](architecture.md) | System design | Understanding the big picture |
 | [Benchmarking Spec](benchmarking.md) | Formal requirements | Detailed acceptance criteria |
